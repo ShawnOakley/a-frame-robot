@@ -26,7 +26,7 @@
               
                 <a-entity id="right-arm-container" position="0.9 -0.1 0 ">
                   <a-entity position="0 0 0 ">
-                  <a-sphere  radius=".1" color="#F8EC99" id="robot-left-arm"></a-sphere>                  
+                  <a-sphere  radius=".1" color="#F8EC99" id="robot-right-arm"></a-sphere>                  
                   <a-entity position="0 -0.2 0 " rotation="0 0 25">
                     <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
                     <a-entity position="0 -0.2 0 " rotation="0 0 25">
@@ -42,7 +42,18 @@
                               <a-entity position="0 -0.2 0 " rotation="0 0 25">
                                 <a-sphere  radius=".1" color="#F8EC99"></a-sphere>         
                                 <a-entity position="0 -0.2 0 ">
-                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-sphere>                                      
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>   
+                                  <a-entity id="right-hand-container" position="0 -0.1 0">
+                                    <a-entity position="0 0 0.1">
+                                      <a-tetrahedron id="right-arm-digit-1" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                    </a-entity> 
+                                    <a-entity position="-0.1 0 -0.1">
+                                      <a-tetrahedron id="right-arm-digit-2" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                    </a-entity> 
+                                    <a-entity position="0.1 0 -0.1">
+                                      <a-tetrahedron id="right-arm-digit-3" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                    </a-entity> 
+                                  </a-entity>                                    
                                 </a-entity>                                        
                               </a-entity>                                  
                             </a-entity>                                
@@ -73,7 +84,18 @@
                               <a-entity position="0 -0.2 0 " rotation="0 0 -25">
                                 <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
                                 <a-entity position="0 -0.2 0 ">
-                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-sphere>                                      
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>  
+                                  <a-entity id="left-hand-container" position="0 -0.1 0">
+                                    <a-entity position="0 0 0.1">
+                                      <a-tetrahedron id="left-arm-digit-1" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                    </a-entity> 
+                                    <a-entity position="-0.1 0 -0.1">
+                                      <a-tetrahedron id="left-arm-digit-2" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                    </a-entity> 
+                                    <a-entity position="0.1 0 -0.1">
+                                      <a-tetrahedron id="left-arm-digit-3" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                    </a-entity> 
+                                  </a-entity>                                    
                                 </a-entity>                                   
                               </a-entity>                                  
                             </a-entity>     
