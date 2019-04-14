@@ -1,0 +1,115 @@
+<html>
+
+    <head>
+        <title>A-Frame Starter Kit - Mini Planetarium</title>
+        <meta name="description" content="Build your own planetarium with A-frame">
+
+        <!-- This turns our HTML into A-Frame! -->
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    </head>
+
+    <body>
+        <!-- a-scene contains all our A-Frame HTML -->
+        <a-scene>
+
+            <!-- the sky is our background, try changing the color or removing
+            it -->
+            <a-sky color="midnightblue"></a-sky>
+
+            <a-entity id="robot-container" position="0 1.5 -5">
+              
+              
+                <a-entity id="upper-torso-container" position="0 0 0 ">
+                  <a-sphere  radius=".4" color="#F8EC99" id="robot-upper-torso"></a-sphere>  
+                </a-entity>
+              
+              
+                <a-entity id="right-arm-container" position="0.9 -0.1 0 ">
+                  <a-entity position="0 0 0 ">
+                  <a-sphere  radius=".1" color="#F8EC99" id="robot-left-arm"></a-sphere>                  
+                  <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                    <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                      <a-sphere  radius=".1" color="#F8EC99"></a-sphere>   
+                      <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                        <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                        <a-entity position="0 -0.2 0" rotation="0 0 25">
+                          <a-sphere  radius=".1" color="#F8EC99"></a-sphere> 
+                          <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                            <a-sphere  radius=".1" color="#F8EC99"></a-sphere>       
+                            <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                              <a-sphere  radius=".1" color="#F8EC99"></a-sphere>      
+                              <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                                <a-sphere  radius=".1" color="#F8EC99"></a-sphere>         
+                                <a-entity position="0 -0.2 0 ">
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-sphere>                                      
+                                </a-entity>                                        
+                              </a-entity>                                  
+                            </a-entity>                                
+                          </a-entity>                              
+                          </a-entity>                              
+                        </a-entity>                           
+                      </a-entity>                         
+                    </a-entity>                         
+                  </a-entity>                     
+                </a-entity>  
+
+              
+                <a-entity id="left-arm-container" position="-0.9 -0.1 0 ">
+                  <a-entity position="0 0 0 ">
+                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                  <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                    <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                      <a-sphere  radius=".1" color="#F8EC99"></a-sphere>   
+                      <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                        <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                        <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                          <a-sphere  radius=".1" color="#F8EC99"></a-sphere> 
+                          <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                            <a-sphere  radius=".1" color="#F8EC99"></a-sphere>       
+                            <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                              <a-sphere  radius=".1" color="#F8EC99"></a-sphere>      
+                              <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                                <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                                <a-entity position="0 -0.2 0 ">
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-sphere>                                      
+                                </a-entity>                                   
+                              </a-entity>                                  
+                            </a-entity>     
+                            </a-entity>  
+                          </a-entity>                              
+                        </a-entity>                           
+                      </a-entity>                         
+                    </a-entity>                         
+                  </a-entity>                    
+                </a-entity>              
+              
+              
+                <a-entity id="ring-container" position="0 0 0 ">              
+                  <a-torus id="robot-ring-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                </a-entity>                         
+
+                <a-entity id="force-container" position="0 0 0 ">      
+                  <a-entity id="force-ring-container-1" position="0 -0.5 0">        
+                    <a-torus id="force-ring-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                    <a-entity id="force-ring-container-2" position="0 -0.25 0">        
+                      <a-torus id="force-ring-2" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                      <a-entity id="force-ring-container-3" position="0 -0.25 0">        
+                        <a-torus id="force-ring-3" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                      </a-entity>   
+                    </a-entity>   
+                  </a-entity>          
+                </a-entity>                 
+            
+            </a-entity>
+
+        </a-scene>
+        
+        <!-- include the Glitch button to show what the webpage is about and to
+        make it easier for folks to view source and remix -->
+        <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+        <script src="https://button.glitch.me/button.js"></script>
+    </body>
+
+</html>
