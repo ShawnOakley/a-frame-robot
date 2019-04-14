@@ -11,6 +11,13 @@
     <body>
         <!-- a-scene contains all our A-Frame HTML -->
         <a-scene>
+          <a-assets>
+            <img id="painted-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FpaintedTexture.jpg?1555278843135">
+            <img id="gold-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
+            <img id="stripe-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
+
+          </a-assets>
+
 
             <!-- the sky is our background, try changing the color or removing
             it -->
@@ -20,8 +27,29 @@
               
               
                 <a-entity id="upper-torso-container" position="0 0 0 ">
-                  <a-sphere  radius=".4" color="#F8EC99" id="robot-upper-torso"></a-sphere>  
+                  <a-dodecahedron scale="1.4 1 1.4"  material="src: #gold-texture" radius=".5" color="#F8EC99" id="robot-upper-torso"></a-dodecahedron>  
                 </a-entity>
+              
+                <a-entity id="face-container" position="0 .4 0 ">
+                  <a-entity id="face-back-container" position="0 0.5 -0.4">
+                    <a-torus material="src: #painted-texture"  id="robot-back" color="#57524A" segments-tubular="50" radius="0.2" radius-tubular="1" height='0.5' rotation="0 0 0" scale="0.48 0.48 0.2"></a-torus>
+                  </a-entity>
+                  <a-entity id="face-stalk-container" position="0 0 0 ">
+                    <a-cylinder radius=".05" color="#F8EC99" id="face-stalk"></a-cylinder>  
+                  </a-entity>
+                  <a-entity id="face-monitor-container" position="0 .4 0 ">
+                    <a-octahedron  scale="1.4 1 1.4" radius=".25" color="#F8EC99"></a-octahedron>   
+                    <a-entity id="eye-stalk-right-container" position="-0.2 .2 0 ">
+                      <a-cylinder radius=".02" height="0.5" rotation="0 0 25" color="#F8EC99" id="face-stalk-right"></a-cylinder>  
+                      <a-tetrahedron  scale="0.2 0.2 0.2" rotation="0 0 25" position="-0.1 0.2 0" color="#F8EC99" id="face-monitor-right"></a-tetrahedron>                     
+                    </a-entity>
+                    <a-entity id="eye-stalk-left-container" position="0.2 .2 0 ">
+                        <a-cylinder radius=".02" height="0.5" rotation="0 0 -25" color="#F8EC99" id="face-stalk-left"></a-cylinder>  
+                      
+                        <a-tetrahedron  scale="0.2 0.2 0.2" rotation="0 0 25" position="0.1 0.2 0" color="#F8EC99" id="face-monitor-left"></a-tetrahedron>                    
+                    </a-entity>                    
+                  </a-entity>                  
+                </a-entity>              
               
               
                 <a-entity id="right-arm-container" position="0.9 -0.1 0 ">
@@ -42,16 +70,17 @@
                               <a-entity position="0 -0.2 0 " rotation="0 0 25">
                                 <a-sphere  radius=".1" color="#F8EC99"></a-sphere>         
                                 <a-entity position="0 -0.2 0 ">
+                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.01"></a-torus>                                  
                                   <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>   
                                   <a-entity id="right-hand-container" position="0 -0.1 0">
                                     <a-entity position="0 0 0.1">
-                                      <a-tetrahedron id="right-arm-digit-1" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="right-arm-digit-1" rotation="42 42 42" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="-0.1 0 -0.1">
-                                      <a-tetrahedron id="right-arm-digit-2" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="right-arm-digit-2" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="0.1 0 -0.1">
-                                      <a-tetrahedron id="right-arm-digit-3" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                      <a-tetrahedron id="right-arm-digit-3" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
                                     </a-entity> 
                                   </a-entity>                                    
                                 </a-entity>                                        
@@ -84,16 +113,18 @@
                               <a-entity position="0 -0.2 0 " rotation="0 0 -25">
                                 <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
                                 <a-entity position="0 -0.2 0 ">
+                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.01"></a-torus>
+                                  
                                   <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>  
                                   <a-entity id="left-hand-container" position="0 -0.1 0">
                                     <a-entity position="0 0 0.1">
-                                      <a-tetrahedron id="left-arm-digit-1" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="-0.1 0 -0.1">
-                                      <a-tetrahedron id="left-arm-digit-2" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="left-arm-digit-2" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="0.1 0 -0.1">
-                                      <a-tetrahedron id="left-arm-digit-3" rotation="180 180 180" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                      <a-tetrahedron id="left-arm-digit-3" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
                                     </a-entity> 
                                   </a-entity>                                    
                                 </a-entity>                                   
@@ -109,16 +140,19 @@
               
               
                 <a-entity id="ring-container" position="0 0 0 ">              
-                  <a-torus id="robot-ring-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                  <a-torus  material="src: #painted-texture"  id="robot-ring-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
                 </a-entity>                         
 
                 <a-entity id="force-container" position="0 0 0 ">      
-                  <a-entity id="force-ring-container-1" position="0 -0.5 0">        
+                  <a-entity id="force-sphere-container" position="0 -0.3 0">        
+                    <a-sphere  radius="0.35" color="#F8EC99"></a-sphere>     
+                  </a-entity>
+                  <a-entity id="force-ring-container-1" position="0 -0.7 0">        
                     <a-torus id="force-ring-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
                     <a-entity id="force-ring-container-2" position="0 -0.25 0">        
-                      <a-torus id="force-ring-2" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                      <a-torus id="force-ring-2" color="#57524A" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
                       <a-entity id="force-ring-container-3" position="0 -0.25 0">        
-                        <a-torus id="force-ring-3" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                        <a-torus id="force-ring-3" color="#57524A" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
                       </a-entity>   
                     </a-entity>   
                   </a-entity>          
