@@ -16,6 +16,14 @@
             <img id="gold-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
             <img id="stripe-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
 
+            <img id="base1" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-granite-1.png?1555293222839">        
+            <img id="normal1" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-granite-NORM.png?1555293222772">
+            <img id="rough1" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-granite-1-DISP.png?1555293224871">        
+            <img id="specular1" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-granite-1-SPECULAR.png?1555293229856">        
+
+            <a-mixin id="rock1" material="opacity:1; src:#base1; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5;"></a-mixin>
+                       
+            
           </a-assets>
 
 
@@ -27,28 +35,34 @@
               
               
                 <a-entity id="upper-torso-container" position="0 0 0 ">
-                  <a-dodecahedron scale="1.4 1 1.4"  material="src: #gold-texture" radius=".5" color="#F8EC99" id="robot-upper-torso"></a-dodecahedron>  
-                  <a-dodecahedron scale="1.25 1 0.7" position="0.75 0 0 " material="src: #gold-texture" radius=".26" color="#F8EC99" id="robot-left-shoulder"></a-dodecahedron>  
-                  <a-dodecahedron scale="1.25 1 0.7" position="-0.75 0 0 " material="src: #gold-texture" radius=".26" color="#F8EC99" id="robot-left-shoulder"></a-dodecahedron>  
+                  <a-dodecahedron scale="1.4 1 1.4"  material="src: #gold-texture" radius=".5" id="robot-upper-torso"></a-dodecahedron>  
+                  <a-dodecahedron scale="1.25 1 0.7" position="0.75 0 0 " material="src: #gold-texture" radius=".26" id="robot-left-shoulder"></a-dodecahedron>  
+                  <a-dodecahedron scale="1.25 1 0.7" position="-0.75 0 0 " material="src: #gold-texture" radius=".26" id="robot-right-shoulder"></a-dodecahedron>  
               </a-entity>
               
                 <a-entity id="face-container" position="0 .4 0 ">
-                  <a-entity id="face-back-container" position="0 0.5 -0.4">
-                    <a-torus material="src: #painted-texture"  id="robot-back" color="#57524A" segments-tubular="50" radius="0.2" radius-tubular="1" height='0.5' rotation="0 0 0" scale="0.3 0.48 0.2"></a-torus>
+                  <a-entity id="face-back-container" position="0 0.3 -0.3">
+                    <a-dodecahedron scale="1.8 2 .8"  material="src: #gold-texture" radius=".5" id="robot-back"></a-dodecahedron>  
+                    
+<!--                     <a-torus material="src: #painted-texture"  id="" color="#57524A" segments-tubular="50" radius="0.2" radius-tubular="1" height='0.5' rotation="0 0 0" scale="0.3 0.48 0.2"></a-torus> -->
                   </a-entity>
                   <a-entity id="face-stalk-container" position="0 0 0 ">
-                    <a-cylinder radius=".05" color="#e20f9c" id="face-stalk"></a-cylinder>  
+                    <a-cylinder radius=".08" id="face-stalk"></a-cylinder>  
                   </a-entity>
                   <a-entity id="face-monitor-container" position="0 .4 0 ">
-                    <a-octahedron  scale="1.4 1 1.4" radius=".25" color="#F8EC99"></a-octahedron>   
+                    <a-entity id="face-mouth-container" position="0 0 0 ">
+                      <a-cylinder material="src: #painted-texture"  radius=".2" height="0.2" rotation="90 0 0" id="face-mouth"></a-cylinder>                        
+                    </a-entity>
+<!--                     <a-octahedron  scale="1.4 1 1.4" radius=".25" color="#F8EC99"></a-octahedron>    -->
                     <a-entity id="eye-stalk-right-container" position="-0.2 .2 0 ">
-                      <a-cylinder radius=".02" height="0.5" rotation="0 0 25" color="#e20f9c" id="face-stalk-right"></a-cylinder>  
-                      <a-octahedron  scale="0.2 0.2 0.2" rotation="0 0 25" position="-0.1 0.2 0" color="#e20f9c" id="face-monitor-right"></a-octahedron>                     
+                      <a-cylinder radius=".03" height="0.5" rotation="0 0 25" id="face-stalk-right"></a-cylinder>  
+                      <a-cylinder radius=".15" height="0.2" rotation="90 0 0" position="-0.1 0.2 0"  id="face-eye-right"></a-cylinder>                        
+<!--                       <a-octahedron  scale="0.2 0.2 0.2" rotation="0 0 25" position="-0.1 0.2 0" color="#e20f9c" id="face-monitor-right"></a-octahedron>                      -->
                     </a-entity>
                     <a-entity id="eye-stalk-left-container" position="0.2 .2 0 ">
-                        <a-cylinder radius=".02" height="0.5" rotation="0 0 -25" color="#e20f9c" id="face-stalk-left"></a-cylinder>  
-                      
-                        <a-octahedron  scale="0.2 0.2 0.2" rotation="0 0 65" position="0.1 0.2 0" color="#e20f9c" id="face-monitor-left"></a-octahedron>                    
+                        <a-cylinder radius=".03" height="0.5" rotation="0 0 -25" id="face-stalk-left"></a-cylinder>  
+                        <a-cylinder radius=".15" height="0.2" rotation="90 0 0" position="0.1 0.2 0"  id="face-eye-left"></a-cylinder>                        
+<!--                         <a-octahedron  scale="0.2 0.2 0.2" rotation="0 0 65" position="0.1 0.2 0" color="#e20f9c" id="face-monitor-left"></a-octahedron>                     -->
                     </a-entity>                    
                   </a-entity>                  
                 </a-entity>              
@@ -56,33 +70,33 @@
               
                 <a-entity id="right-arm-container" position="0.9 -0.1 0 ">
                   <a-entity position="0 0 0 ">
-                  <a-sphere  radius=".1" color="#F8EC99" id="robot-right-arm"></a-sphere>                  
+                  <a-sphere  radius=".1" id="robot-right-arm"></a-sphere>                  
                   <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                    <a-sphere  radius=".1"></a-sphere>    
                     <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                      <a-sphere  radius=".1" color="#F8EC99"></a-sphere>   
+                      <a-sphere  radius=".1"></a-sphere>   
                       <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                        <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                        <a-sphere  radius=".1"></a-sphere>     
                         <a-entity position="0 -0.2 0" rotation="0 0 25">
-                          <a-sphere  radius=".1" color="#F8EC99"></a-sphere> 
+                          <a-sphere  radius=".1"></a-sphere> 
                           <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                            <a-sphere  radius=".1" color="#F8EC99"></a-sphere>       
+                            <a-sphere  radius=".1"></a-sphere>       
                             <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                              <a-sphere  radius=".1" color="#F8EC99"></a-sphere>      
+                              <a-sphere  radius=".1"></a-sphere>      
                               <a-entity position="0 -0.2 0 " rotation="0 0 25">
-                                <a-sphere  radius=".1" color="#F8EC99"></a-sphere>         
+                                <a-sphere  radius=".1"></a-sphere>         
                                 <a-entity position="0 -0.2 0 ">
-                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.01"></a-torus>                                  
-                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>   
+                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.02"></a-torus>                                  
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45"></a-tetrahedron>   
                                   <a-entity id="right-hand-container" position="0 -0.1 0">
                                     <a-entity position="0 0 0.1">
-                                      <a-tetrahedron id="right-arm-digit-1" rotation="42 42 42" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="right-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="-0.1 0 -0.1">
-                                      <a-tetrahedron id="right-arm-digit-2" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="right-arm-digit-2" rotation="42 42 42" radius=".15" height="1"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="0.1 0 -0.1">
-                                      <a-tetrahedron id="right-arm-digit-3" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                      <a-tetrahedron id="right-arm-digit-3" rotation="42 42 42" radius=".15" height="1"></a-tetrahedron>                                                                          
                                     </a-entity> 
                                   </a-entity>                                    
                                 </a-entity>                                        
@@ -99,34 +113,34 @@
               
                 <a-entity id="left-arm-container" position="-0.9 -0.1 0 ">
                   <a-entity position="0 0 0 ">
-                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                    <a-sphere  radius=".1"></a-sphere>    
                   <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                    <a-sphere  radius=".1" color="#F8EC99"></a-sphere>    
+                    <a-sphere  radius=".1"></a-sphere>    
                     <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                      <a-sphere  radius=".1" color="#F8EC99"></a-sphere>   
+                      <a-sphere  radius=".1"></a-sphere>   
                       <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                        <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                        <a-sphere  radius=".1"></a-sphere>     
                         <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                          <a-sphere  radius=".1" color="#F8EC99"></a-sphere> 
+                          <a-sphere  radius=".1"></a-sphere> 
                           <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                            <a-sphere  radius=".1" color="#F8EC99"></a-sphere>       
+                            <a-sphere  radius=".1"></a-sphere>       
                             <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                              <a-sphere  radius=".1" color="#F8EC99"></a-sphere>      
+                              <a-sphere  radius=".1"></a-sphere>      
                               <a-entity position="0 -0.2 0 " rotation="0 0 -25">
-                                <a-sphere  radius=".1" color="#F8EC99"></a-sphere>     
+                                <a-sphere  radius=".1"></a-sphere>     
                                 <a-entity position="0 -0.2 0 ">
-                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" color="#57524A" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.01"></a-torus>
+                                  <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.02"></a-torus>
                                   
-                                  <a-tetrahedron  radius=".2" rotation="210 180 45" color="#F8EC99"></a-tetrahedron>  
+                                  <a-tetrahedron  radius=".2" rotation="210 180 45"></a-tetrahedron>  
                                   <a-entity id="left-hand-container" position="0 -0.1 0">
                                     <a-entity position="0 0 0.1">
-                                      <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="-0.1 0 -0.1">
-                                      <a-tetrahedron id="left-arm-digit-2" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                        
+                                      <a-tetrahedron id="left-arm-digit-2" rotation="42 42 42" radius=".15" height="1"></a-tetrahedron>                                                                        
                                     </a-entity> 
                                     <a-entity position="0.1 0 -0.1">
-                                      <a-tetrahedron id="left-arm-digit-3" rotation="42 42 42" radius=".15" height="1" color="#F8EC99"></a-tetrahedron>                                                                          
+                                      <a-tetrahedron id="left-arm-digit-3" rotation="42 42 42" radius=".15" height="1"></a-tetrahedron>                                                                          
                                     </a-entity> 
                                   </a-entity>                                    
                                 </a-entity>                                   
@@ -142,12 +156,12 @@
               
               
                 <a-entity id="ring-container" position="0 0 0.25 ">              
-                  <a-torus  material="src: #painted-texture"  id="robot-ring-1" color="#57524A" segments-tubular="50" radius="0.0075" radius-tubular="0.75" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                  <a-torus  material="src: #painted-texture"  id="robot-ring-1" segments-tubular="50" radius="0.0075" radius-tubular="0.75" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
                 </a-entity>                         
 
                 <a-entity id="force-container" position="0 0 0 ">      
                   <a-entity id="force-sphere-container" position="0 -0.3 0">        
-                    <a-sphere  radius="0.35" color="#e20f9c"></a-sphere>     
+                    <a-sphere mixin="rock1" material="opacity: 1; color: red emissive: red;" radius="0.35"></a-sphere>     
                   </a-entity>
                   <a-entity id="force-ring-container-1" position="0 -0.7 0">        
                     <a-torus id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
@@ -161,6 +175,7 @@
                 </a-entity>                 
             
             </a-entity>
+            <a-entity light="intensity: 1.8; type: point" position="0 -3 1"></a-entity>
 
         </a-scene>
         
