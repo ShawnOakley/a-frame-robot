@@ -35,17 +35,20 @@
             <img id="normal4" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FLava_002_NRM.png?1555363041271">
             <img id="rough4" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FLava_002_DISP.png?1555363040744"> 
 <!--             <img id="specular4" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FLava_002_SPEC.png?1555363040686">                 -->
-            
+            <img id="base5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-TEX.png?1555529838959">        
+            <img id="normal5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-NORM.png?1555529838429">
+            <img id="rough5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-DISP.png?1555529838397">             
             
             <a-mixin id="rock1" material="opacity:1; src:#base1; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5;"></a-mixin>
             <a-mixin id="metal1" material="opacity:1; src:#base2; roughnessMap:#rough2; normalMap:#normal2; metalness:  1;"></a-mixin>
             <a-mixin id="metal2" material="opacity:1; src:#base3; roughnessMap:#rough3; normalMap:#normal3; metalness:  0.5;"></a-mixin>
             <a-mixin id="lava1" material="opacity:1; src:#base4; roughnessMap:#rough4; normalMap:#normal4; metalness:  0.5;"></a-mixin>
+            <a-mixin id="stone1" material="opacity:1; src:#base5; roughnessMap:#rough5; normalMap:#normal5; metalness:  0.1;"></a-mixin>
                        
             
           </a-assets>
 
-            <a-entity id="robot-container" position="0 1.5 -5">
+            <a-entity id="robot-container" shadow="receive: true" position="0 0.5 -5">
               
               
                 <a-entity id="upper-torso-container" position="0 0 0 ">
@@ -199,15 +202,17 @@
             </a-entity>
           <a-entity id="env-container">
 <!--             https://stackoverflow.com/questions/40576667/how-to-make-infinite-floor-with-a-frame -->
-              <a-sky src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstreet-equi.jpg?1555513031380"></a-sky>
-            <a-circle radius="2"></a-circle>
+              <a-sky rotation="0 270 0" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstreet-equi.jpg?1555513031380"></a-sky>
+            <a-circle mixin="stone1" radius="21" rotation="270 0 0" position="0 -2 0" shadow="receive: true"></a-circle>
 <!--               <a-box width="1" depth="1" density="40" opacity="1" position="0 -0.8 0"></a-box>           -->
           </a-entity>
 
           <a-entity id="light-container">
+            <a-entity light="intensity: 0.75; type: spot; castShadow:true;" position="32 5 -5" rotation="-90 0 0"></a-entity>
             <a-entity light="intensity: 0.5; type: point" position="0 -3 1"></a-entity>
             <a-entity light="intensity: 0.25; type: point" position="0 0 1"></a-entity>
             <a-entity light="intensity: 0.5; type: point" position="0 3 1"></a-entity>
+<!--             <a-entity light="type: ambient; color: #CCC"></a-entity> -->
           </a-entity>
 
 
