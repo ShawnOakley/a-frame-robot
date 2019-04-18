@@ -210,23 +210,30 @@
 
                 <a-entity id="force-container" position="0 0 0 ">      
                   <a-entity id="force-sphere-container" position="0 -0.3 0">        
-                    <a-sphere mixin="rock1" material="opacity: 1; color: red; emissive: red;" radius="0.35"></a-sphere>     
+                    <a-sphere mixin="rock1" material="opacity: 1; color: red; emissive: red;emissiveIntensity:0.1;" radius="0.35">
+                        <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
+                    </a-sphere>     
                   </a-entity>
                   <a-entity id="force-ring-container-1" position="0 -0.7 0">        
                     <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                       <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                       <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
-                    
+                      <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
+                      <a-animation attribute="material.opacity" from="0.000001" to="0.8" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
                     </a-torus>
                     <a-entity id="force-ring-container-2" position="0 -0.25 0">        
                       <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-2" color="#e20f9c" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                         <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                         <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                        <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
+                        <a-animation attribute="material.opacity" from="0.000001" to="0.8" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
                       </a-torus>
                       <a-entity id="force-ring-container-3" position="0 -0.25 0">        
                         <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-3" color="#e20f9c" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                           <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                           <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+                          <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
+                          <a-animation attribute="material.opacity" from="0.000001" to="0.8" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                            
                         </a-torus>
                       </a-entity>   
                     </a-entity>   
@@ -243,19 +250,19 @@
 
           <a-entity id="light-container">
             <a-entity light="intensity: 0.75; type: spot; castShadow:true; color: purple" position="3 5 -5" rotation="-90 0 0">
-              <a-animation attribute="light.intensity" from="0" to="0.75" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+              <a-animation attribute="light.intensity" from="0" to="0.75" dur="10000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
             </a-entity>
             <a-entity light="intensity: 0.75; type: point; color: gold;" position="1 0 1">
-              <a-animation attribute="light.intensity" from="0.35" delay="300" to="0.75" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
+              <a-animation attribute="light.intensity" from="0.35" to="0.75" dur="15000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
             </a-entity>
             <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 -3 1">
-              <a-animation attribute="light.intensity" from="0" delay="600" to="0.75" dur="900" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+              <a-animation attribute="light.intensity" from="0" to="0.75" dur="9000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
             </a-entity>
             <a-entity light="intensity: 0.25; type: point; color: blue;" position="0 0 1">
-              <a-animation attribute="light.intensity" from="0" delay="900" to="0.75" dur="1200" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+              <a-animation attribute="light.intensity" from="0" to="0.75" dur="12000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
             </a-entity>
             <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 3 1">
-              <a-animation attribute="light.intensity" from="0" delay="1200" to="0.75" dur="1000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+              <a-animation attribute="light.intensity" from="0" to="0.75" dur="10000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
             
             </a-entity>
 <!--             <a-entity light="type: ambient; color: #CCC"></a-entity> -->
