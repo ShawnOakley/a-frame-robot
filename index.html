@@ -10,7 +10,9 @@
 
     <body>
         <!-- a-scene contains all our A-Frame HTML -->
-        <a-scene>
+<!--       https://stackoverflow.com/questions/39476791/how-to-enable-anti-aliasing-in-a-frame -->
+<!--       https://stackoverflow.com/questions/50366126/can-we-have-soft-shadows-using-aframe -->
+        <a-scene antialias="true"  shadow="type: pcfsoft">
           <a-assets>
             <img id="painted-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FpaintedTexture.jpg?1555278843135">
             <img id="gold-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
@@ -39,17 +41,18 @@
             <img id="normal5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-NORM.png?1555529838429">
             <img id="rough5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-DISP.png?1555529838397">             
             
-            <a-mixin id="rock1" material="opacity:1; src:#base1; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5;"></a-mixin>
-            <a-mixin id="metal1" material="opacity:1; src:#base2; roughnessMap:#rough2; normalMap:#normal2; metalness:  1;"></a-mixin>
-            <a-mixin id="metal2" material="opacity:1; src:#base3; roughnessMap:#rough3; normalMap:#normal3; metalness:  0.5;"></a-mixin>
-            <a-mixin id="lava1" material="opacity:1; src:#base4; roughnessMap:#rough4; normalMap:#normal4; metalness:  0.5;"></a-mixin>
-            <a-mixin id="stone1" material="opacity:1; src:#base5; roughnessMap:#rough5; normalMap:#normal5; metalness:  0.1;"></a-mixin>
+            <a-mixin id="rock1" material="opacity:1; src:#base1; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5; roughness: 1;"></a-mixin>
+            <a-mixin id="metal1" material="opacity:1; src:#base2; roughnessMap:#rough2; normalMap:#normal2; metalness:  1; roughness: 0.25;"></a-mixin>
+            <a-mixin id="metal2" material="opacity:1; src:#base3; roughnessMap:#rough3; normalMap:#normal3; metalness:  0.5; roughness: 0.75;"></a-mixin>
+            <a-mixin id="lava1" material="opacity:1; src:#base4; roughnessMap:#rough4; normalMap:#normal4; metalness:  0.5; roughness: 0.5;"></a-mixin>
+            <a-mixin id="stone1" material="opacity:1; src:#base5; roughnessMap:#rough5; normalMap:#normal5; metalness:  0.1; roughness: 1;"></a-mixin>
                        
             
           </a-assets>
 
             <a-entity id="robot-container" shadow="receive: true" position="0 0.5 -5">
-              
+                <a-animation attribute="position" from="0 0.3 -5" to="0 0.1 -5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+
               
                 <a-entity id="upper-torso-container" position="0 0 0 ">
                   <a-dodecahedron scale="1.4 1 1.4"  material="src: #stripe-texture" radius=".5" id="robot-upper-torso"></a-dodecahedron>  
@@ -189,11 +192,21 @@
                     <a-sphere mixin="rock1" material="opacity: 1; color: red; emissive: red;" radius="0.35"></a-sphere>     
                   </a-entity>
                   <a-entity id="force-ring-container-1" position="0 -0.7 0">        
-                    <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                    <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                      <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                      <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                    
+                    </a-torus>
                     <a-entity id="force-ring-container-2" position="0 -0.25 0">        
-                      <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-2" color="#e20f9c" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                      <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-2" color="#e20f9c" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                        <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                        <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                      </a-torus>
                       <a-entity id="force-ring-container-3" position="0 -0.25 0">        
-                        <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-3" color="#e20f9c" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04"></a-torus>
+                        <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-3" color="#e20f9c" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                          <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
+                          <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+                        </a-torus>
                       </a-entity>   
                     </a-entity>   
                   </a-entity>          
