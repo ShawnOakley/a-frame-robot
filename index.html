@@ -95,24 +95,37 @@
                   <a-entity position="0 0 0" rotation="50 0 0">
                   <a-sphere mixin="metal1" radius=".1" id="robot-right-arm"></a-sphere>                  
                   <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                    <a-animation attribute="rotation" delay="1200" from="0 -15 25" to="0 15 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>              
                     <a-sphere mixin="metal1" radius=".13"></a-sphere>    
                     <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                      <a-animation attribute="rotation" delay="1000" from="0 -15 25" to="0 15 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
                       <a-sphere mixin="metal1" radius=".14"></a-sphere>   
                       <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                        <a-animation attribute="rotation" delay="800" from="0 -15 25" to="0 15 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
+                        
                         <a-sphere mixin="metal1" radius=".15"></a-sphere>     
                         <a-entity position="0 -0.2 0" rotation="0 -30 25">
+                            <a-animation attribute="rotation" delay="600" from="0 -55 25" to="0 -5 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
+                          
                           <a-sphere mixin="metal1" radius=".16"></a-sphere> 
                           <a-entity position="0 -0.2 0 " rotation="0 -20 25">
+                            <a-animation attribute="rotation" delay="400" from="0 -45 25" to="0 5 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
+                            
                             <a-sphere mixin="metal1" radius=".18"></a-sphere>       
                             <a-entity position="0 -0.2 0 " rotation="0 -10 25">
+                              <a-animation attribute="rotation" delay="200" from="0 -25 25" to="0 15 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
+                              
                               <a-sphere mixin="metal1" radius=".2"></a-sphere>      
                               <a-entity position="0 -0.2 0 " rotation="0 0 25">
+                                <a-animation attribute="rotation" from="0 -15 25" to="0 15 25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
                                 <a-sphere mixin="metal1" radius=".2"></a-sphere>         
                                 <a-entity position="0 -0.2 0 ">
                                   <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-right-cuff-1" segments-tubular="50" radius="0.5" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.1"></a-torus>                                  
                                   <a-tetrahedron  radius=".2" rotation="210 180 45"></a-tetrahedron>   
                                   <a-entity id="right-hand-container" position="0 -0.1 0">
-                                    <a-torus-knot mixin="metal1" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">                                    
+                                    <a-torus-knot mixin="metal1" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">    
+                                      <a-animation attribute="rotation" from="90 -180 0" to="90 180 0" dur="400" fill="forwards" repeat="indefinite"></a-animation>                                  
+                                      
                                     </a-torus-knot>                                             
 <!--                                     <a-entity position="0 0 0.1">
                                       <a-tetrahedron id="right-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
@@ -140,18 +153,25 @@
                   <a-entity position="0 0 0 " rotation="0 50 0">
                     <a-sphere mixin="metal1" radius=".1"></a-sphere>    
                   <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                    <a-animation attribute="rotation" delay="1200" from="10 0 -25" to="-10 0 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
                     <a-sphere mixin="metal1" radius=".13"></a-sphere>    
                     <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                      <a-animation attribute="rotation" delay="1000" from="10 0 -25" to="-10 0 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                                      
                       <a-sphere mixin="metal1" radius=".14"></a-sphere>   
                       <a-entity position="0 -0.2 0 " rotation="0 10 -25">
+                        <a-animation attribute="rotation" delay="800" from="10 10 -25" to="-10 10 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                                                            
                         <a-sphere mixin="metal1" radius=".15"></a-sphere>     
                         <a-entity position="0 -0.2 0 " rotation="0 20 -25">
+                          <a-animation attribute="rotation" delay="600" from="10 20 -25" to="-10 20 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                                                                                    
                           <a-sphere mixin="metal1" radius=".16"></a-sphere> 
                           <a-entity position="0 -0.2 0 " rotation="0 10 -25">
+                            <a-animation attribute="rotation" delay="400" from="10 10 -25" to="-10 10 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                                                                                    
                             <a-sphere mixin="metal1" radius=".18"></a-sphere>       
                             <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                              <a-animation attribute="rotation" delay="200" from="10 0 -25" to="-10 0 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                                                                                                                
                               <a-sphere mixin="metal1" radius=".2"></a-sphere>      
                               <a-entity position="0 -0.2 0 " rotation="0 0 -25">
+                                <a-animation attribute="rotation"  from="10 0 -25" to="-10 0 -25" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                                 <a-sphere mixin="metal1" radius=".2"></a-sphere>     
                                 <a-entity position="0 -0.2 0 ">
                                   <a-torus  position="0 -0.08 0 " material="src: #painted-texture"  id="robot-left-cuff-1" segments-tubular="50" radius="0.3" radius-tubular="1" rotation="90 0 0" scale=".11 .11 0.1"></a-torus>
@@ -221,10 +241,22 @@
           </a-entity>
 
           <a-entity id="light-container">
-            <a-entity light="intensity: 0.75; type: spot; castShadow:true;" position="3 5 -5" rotation="-90 0 0"></a-entity>
-            <a-entity light="intensity: 0.5; type: point" position="0 -3 1"></a-entity>
-            <a-entity light="intensity: 0.25; type: point" position="0 0 1"></a-entity>
-            <a-entity light="intensity: 0.5; type: point" position="0 3 1"></a-entity>
+            <a-entity light="intensity: 0.75; type: spot; castShadow:true; color: purple" position="3 5 -5" rotation="-90 0 0">
+              <a-animation attribute="light.intensity" from="0" to="0.75" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+            </a-entity>
+            <a-entity light="intensity: 0.75; type: point; color: gold;" position="1 0 1">
+              <a-animation attribute="light.intensity" from="0" delay="300" to="0.75" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
+            </a-entity>
+            <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 -3 1">
+              <a-animation attribute="light.intensity" from="0" delay="600" to="0.75" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+            </a-entity>
+            <a-entity light="intensity: 0.25; type: point; color: blue;" position="0 0 1">
+              <a-animation attribute="light.intensity" from="0" delay="900" to="0.75" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+            </a-entity>
+            <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 3 1">
+              <a-animation attribute="light.intensity" from="0" delay="1200" to="0.75" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+            
+            </a-entity>
 <!--             <a-entity light="type: ambient; color: #CCC"></a-entity> -->
           </a-entity>
 
