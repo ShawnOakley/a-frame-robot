@@ -39,7 +39,12 @@
 <!--             <img id="specular4" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FLava_002_SPEC.png?1555363040686">                 -->
             <img id="base5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-TEX.png?1555529838959">        
             <img id="normal5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-NORM.png?1555529838429">
-            <img id="rough5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-DISP.png?1555529838397">             
+            <img id="rough5" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Fstone-redstone-4-DISP.png?1555529838397">  
+            
+            <img id="base6" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Ffarbric-2-displacement.jpg?1555680801775">        
+            <img id="normal6" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Ffarbric-2-normal.png?1555680804923">
+            <img id="rough6" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Ffarbric-2-diffuse.png?1555680805090">        
+            <img id="specular6" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2Ffarbric-2-specular.png?1555680804877">                   
             
             <a-mixin id="rock1" material="opacity:1; src:#base1; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5; roughness: 1;"></a-mixin>
             <a-mixin id="metal1" material="opacity:1; src:#base2; roughnessMap:#rough2; normalMap:#normal2; metalness:  1; roughness: 0.25;"></a-mixin>
@@ -66,7 +71,11 @@
                     <a-dodecahedron scale="1.8 2 .8"  material="src: #stripe-texture" radius=".5" id="robot-back">
                     </a-dodecahedron>  
                     <a-entity id="face-helmet"  position="0 0.6 0.3">
-                      <a-sphere mixin="rock1" scale="1.5 1.5 1.5" material="opacity: 1; color: grey; emissive: grey;" radius="0.35"></a-sphere>            
+                      <a-sphere mixin="rock1" scale="1.5 1.5 1.5" material="opacity: 1; color: grey; emissive: grey;" radius="0.35">
+                        <a-animation attribute="material.emissiveIntensity" from="0.5" to="1" dur="4000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
+
+                      
+                      </a-sphere>            
                     </a-entity>
 <!--                     <a-torus material="src: #painted-texture"  id="" color="#57524A" segments-tubular="50" radius="0.2" radius-tubular="1" height='0.5' rotation="0 0 0" scale="0.3 0.48 0.2"></a-torus> -->
                   </a-entity>
@@ -126,7 +135,6 @@
                                   <a-entity id="right-hand-container" position="0 -0.1 0">
                                     <a-torus-knot mixin="metal1" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">    
                                       <a-animation attribute="rotation" from="90 -180 0" to="90 180 0" dur="400" fill="forwards" repeat="indefinite"></a-animation>                                  
-                                      
                                     </a-torus-knot>                                             
 <!--                                     <a-entity position="0 0 0.1">
                                       <a-tetrahedron id="right-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
@@ -179,7 +187,9 @@
                                   
                                   <a-tetrahedron  radius=".2" rotation="210 180 45"></a-tetrahedron>  
                                   <a-entity id="left-hand-container" position="0 -0.1 0">
-                                    <a-torus-knot mixin="metal1" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">                                    
+                                    <a-torus-knot mixin="metal1" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">  
+                                      <a-animation attribute="p" from="5" to="15" dur="6000" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
+                                      <a-animation attribute="q" from="20" to="1" dur="6000" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
                                     </a-torus-knot>
 <!--                                     <a-entity position="0 0 0.1">
                                       <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
@@ -249,20 +259,20 @@
           </a-entity>
 
           <a-entity id="light-container">
-            <a-entity light="intensity: 0.75; type: spot; castShadow:true; color: purple" position="3 5 -5" rotation="-90 0 0">
-              <a-animation attribute="light.intensity" from="0" to="0.75" dur="10000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+            <a-entity light="intensity: 0.75; type: spot; castShadow:true;" position="3 5 -5" rotation="-90 0 0">
+              <a-animation attribute="light.intensity" from="0.85" to="0.95" dur="50000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
             </a-entity>
             <a-entity light="intensity: 0.75; type: point; color: gold;" position="1 0 1">
-              <a-animation attribute="light.intensity" from="0.35" to="0.75" dur="15000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
+              <a-animation attribute="light.intensity" from="0.65" to="0.85" dur="5000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
             </a-entity>
             <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 -3 1">
-              <a-animation attribute="light.intensity" from="0" to="0.75" dur="9000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+              <a-animation attribute="light.intensity" from="0.45" to="0.85" dur="4000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
             </a-entity>
             <a-entity light="intensity: 0.25; type: point; color: blue;" position="0 0 1">
-              <a-animation attribute="light.intensity" from="0" to="0.75" dur="12000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
+              <a-animation attribute="light.intensity" from="0.45" to="0.85" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                    
             </a-entity>
             <a-entity light="intensity: 0.5; type: point; color: blue;" position="0 3 1">
-              <a-animation attribute="light.intensity" from="0" to="0.75" dur="10000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
+              <a-animation attribute="light.intensity" from="0.45" to="0.85" dur="30000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
             
             </a-entity>
 <!--             <a-entity light="type: ambient; color: #CCC"></a-entity> -->
