@@ -16,6 +16,12 @@
 <!--       https://stackoverflow.com/questions/50366126/can-we-have-soft-shadows-using-aframe -->
         <a-scene antialias="true"  shadow="type: pcfsoft">
           <a-assets>
+            
+            <img id="happy" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FLaughing-512.png?1557178860969">
+            <img id="angry" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FAngry-512.png?1557178861079">
+            
+            <img id="soft-smoke" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FSoftSmoke.png?1557176496930">
+            
             <img id="painted-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FpaintedTexture.jpg?1555278843135">
             <img id="gold-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
             <img id="stripe-texture" src="https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FTexturesCom_MetalPlatesPainted0016_1_seamless_S.jpg?1555279383757">
@@ -53,6 +59,9 @@
             <a-mixin id="metal2" material="opacity:1; src:#base3; roughnessMap:#rough3; normalMap:#normal3; metalness:  0.5; roughness: 0.75;"></a-mixin>
             <a-mixin id="lava1" material="opacity:1; src:#base4; roughnessMap:#rough4; normalMap:#normal4; metalness:  0.5; roughness: 0.5;"></a-mixin>
             <a-mixin id="stone1" material="opacity:1; src:#base5; roughnessMap:#rough5; normalMap:#normal5; metalness:  0.1; roughness: 1;"></a-mixin>
+            
+            <a-mixin id="happy1" material="opacity:1; src:#happy; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5; roughness: 1;"></a-mixin>
+            <a-mixin id="angry1" material="opacity:1; src:#angry; roughnessMap:#rough1; normalMap:#normal1; metalness:  0.5; roughness: 1;"></a-mixin>
                        
             
           </a-assets>
@@ -73,8 +82,10 @@
                     <a-dodecahedron scale="1.8 2 .8"  material="src: #stripe-texture" radius=".5" id="robot-back">
                     </a-dodecahedron>  
                     <a-entity id="face-helmet"  position="0 0.6 0.3">
-                      <a-sphere mixin="rock1" scale="1.5 1.5 1.5" material="opacity: 1; color: grey; emissive: grey;" radius="0.35">
-                        <a-animation attribute="material.emissiveIntensity" from="0.5" to="1" dur="4000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
+<!--                       <a-sphere mixin="rock1" scale="1.5 1.5 1.5" material="opacity: 1; color: grey; emissive: grey;" radius="0.35"> -->
+                        <a-sphere mixin="angry1" scale="1.5 1.5 1.5" material="opacity: 1; emissive: red; repeat: 2 1;" radius="0.35">
+<!--                         <a-animation attribute="material.emissiveIntensity" from="0.25" to="2" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>   -->
+                        <a-animation attribute="material.emissive" from="white" to="red" dur="500" easing="ease-out" direction="alternate" repeat="indefinite"></a-animation>  
 
                       
                       </a-sphere>            
@@ -189,11 +200,34 @@
                                   
                                   <a-tetrahedron  radius=".2" rotation="210 180 45"></a-tetrahedron>  
                                   <a-entity id="left-hand-container" position="0 -0.1 0">
+                                    <a-entity light="intensity: 0.5; type: point; color: red;" position="0 0 0">
+                                    </a-entity>                                    
                                     <a-torus-knot mixin="metal1" material="opacity: 0.75; emissive: blue;" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">  
-                                      <a-animation attribute="p" from="5" to="15" dur="6000" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
-                                      <a-animation attribute="q" from="20" to="1" dur="6000" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
-                                      <a-animation attribute="material.emissiveIntensity" from="0.05" to="1" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
+                                      <a-animation attribute="p" from="5" to="15" dur="1255" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
+                                      <a-animation attribute="q" from="20" to="5" dur="1675" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
+                                      <a-animation attribute="material.emissiveIntensity" from="0.6" to="1" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
                                       <a-animation attribute="material.emissive" from="gold" to="red" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
+                                      <a-entity 
+                                        position="0 0 0"
+                                        rotation="0 90 90"
+                                        particle-system="
+                                                         type: sphere; 
+                                                         blending:2; 
+                                                         randomize: true; 
+                                                         velocityValue: 0 0 0; 
+                                                         velocitySpread: 0 0 0; 
+                                                         accelerationSpread: 0 0 0; 
+                                                         accelerationValue: 0 0 0; 
+                                                         maxAge:0.5; 
+                                                         positionSpread: 0 0 0; 
+                                                         color: red,gold; 
+                                                         loop: false;
+                                                         duration: 500;
+                                                         delay:3000;
+                                                         texture:https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FSoftSmoke.png?1557176496930;
+                                                        "
+                                      ></a-entity>
+
                                     </a-torus-knot>
 <!--                                     <a-entity position="0 0 0.1">
                                       <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
