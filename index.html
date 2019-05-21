@@ -8,6 +8,7 @@
         <!-- https://github.com/IdeaSpaceVR/aframe-particle-system-component#readme -->
         <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>       
+        <script src="shader-frog.js"></script>
     </head>
 
     <body>
@@ -65,7 +66,6 @@
                        
             
           </a-assets>
-
             <a-entity id="robot-container" shadow="receive: true" position="0 0.5 -5">
                 <a-animation attribute="position" from="0 0.3 -5" to="0 0.1 -5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                 <a-animation attribute="rotation" from="5 -5 0" to="-5 5 0" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                  
@@ -202,14 +202,15 @@
                                   <a-entity id="left-hand-container" position="0 -0.1 0">
                                     <a-entity light="intensity: 0.5; type: point; color: red;" position="0 0 0">
                                     </a-entity>                                    
-                                    <a-torus-knot mixin="metal1" material="opacity: 0.75; emissive: blue;" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">  
+                                    <a-torus-knot mixin="metal1" material="emissive: blue;" arc="270" position="0 -0.2 0" scale="0.25 0.25 0.25" p="5" q="20" rotation="90 0 0">  
                                       <a-animation attribute="p" from="5" to="15" dur="1255" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
                                       <a-animation attribute="q" from="20" to="5" dur="1675" fill="forwards" direction="alternate"  repeat="indefinite"></a-animation>                                  
                                       <a-animation attribute="material.emissiveIntensity" from="0.6" to="1" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
                                       <a-animation attribute="material.emissive" from="gold" to="red" dur="3000" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
-                                      <a-entity 
+                                  
+<!--                                       <a-entity 
                                         position="0 0 0"
-                                        rotation="0 90 90"
+                                        rotation="0 0 90"
                                         particle-system="
                                                          type: sphere; 
                                                          blending:2; 
@@ -224,10 +225,12 @@
                                                          loop: false;
                                                          duration: 500;
                                                          delay:3000;
+                                                         rotationAngle:2;
+                                                         rotationAngleSpread:3;
                                                          texture:https://cdn.glitch.com/27ba8b53-4696-4af0-a77c-7255261a8735%2FSoftSmoke.png?1557176496930;
                                                         "
                                       ></a-entity>
-
+ -->
                                     </a-torus-knot>
 <!--                                     <a-entity position="0 0 0.1">
                                       <a-tetrahedron id="left-arm-digit-1" rotation="42 42 42" radius=".1" height="1"></a-tetrahedron>                                                                        
@@ -238,6 +241,11 @@
                                     <a-entity position="0.1 0 -0.1">
                                       <a-tetrahedron id="left-arm-digit-3" rotation="42 42 42" radius=".15" height="1"></a-tetrahedron>                                                                          
                                     </a-entity>  -->
+                                      <a-sphere shadow
+                                                shader-frog="name:Fork_of_Electric_Shader"                
+                                                radius="0.2"
+                                                position="0 -0.25 0">
+                                      </a-sphere>                                        
                                   </a-entity>                                    
                                 </a-entity>                                   
                               </a-entity>                                  
@@ -260,26 +268,26 @@
                   <a-entity id="force-sphere-container" position="0 -0.3 0">   
 <!--                     <a-entity position="0 0" rotation="0 0 180" particle-system="type: 3; positionSpread: 0.1 0.1 0.1; color: red,gold;"></a-entity> -->
 
-                    <a-sphere mixin="rock1" material="opacity: 1; color: red; emissive: red;emissiveIntensity:0.1;" radius="0.35">
+                    <a-sphere shader-frog="name:Fork_of_Electric_Shader"  mixin="rock1" material="opacity: 1; color: red; emissive: red;emissiveIntensity:0.1;" radius="0.35">
                         <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
                     </a-sphere>     
                   </a-entity>
                   <a-entity id="force-ring-container-1" position="0 -0.7 0">        
-                    <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                    <a-torus shader-frog="name:Fork_of_Electric_Shader"  mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-1" color="#e20f9c" segments-tubular="50" radius="0.5" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                       <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                       <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                       <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
                       <a-animation attribute="material.opacity" from="0.000001" to="0.8" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                                      
                     </a-torus>
-                    <a-entity id="force-ring-container-2" position="0 -0.25 0">        
-                      <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-2" color="#e20f9c" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                    <a-entity id="force-ring-container-2" rotation="0 90 0"  position="0 -0.25 0">        
+                      <a-torus shader-frog="name:Fork_of_Electric_Shader"  mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-2" color="#e20f9c" segments-tubular="50" radius="0.4" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                         <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                         <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                         <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
                         <a-animation attribute="material.opacity" from="0.000001" to="0.8" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                  
                       </a-torus>
-                      <a-entity id="force-ring-container-3" position="0 -0.25 0">        
-                        <a-torus mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-3" color="#e20f9c" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
+                      <a-entity id="force-ring-container-3" rotation="0 90 0" position="0 -0.25 0">        
+                        <a-torus shader-frog="name:Fork_of_Electric_Shader"  mixin="lava1" material="opacity: 0.75; color: red; emissive: red;" id="force-ring-3" color="#e20f9c" segments-tubular="50" radius="0.3" radius-tubular="0.02" rotation="90 0 0" scale=".44 .44 0.04">
                           <a-animation attribute="position" from="0 0.08 0" to="0 -0.15 0" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>
                           <a-animation attribute="scale" from=".34 .34 0.02" to=".54 .54 0.05" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>                        
                           <a-animation attribute="material.emissiveIntensity" from="0.05" to="0.5" dur="1500" easing="ease-in-out" direction="alternate" repeat="indefinite"></a-animation>  
